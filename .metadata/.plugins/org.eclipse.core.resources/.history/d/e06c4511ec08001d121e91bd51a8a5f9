@@ -1,0 +1,11 @@
+package com.springboot.admissionsystem.repository;
+import java.util.List;
+import com.springboot.admissionsystem.entity.University;
+public interface UniversityRepository {
+	University addUniversity(University university);
+	University updateUniversity(University university);
+	void removeUniversity(int uid);
+	University viewUniversity(int uid);
+	List<University> viewAllUniversityList();
+
+}

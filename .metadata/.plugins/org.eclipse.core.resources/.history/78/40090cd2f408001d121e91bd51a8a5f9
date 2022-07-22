@@ -1,0 +1,7 @@
+package com.springboot.admissionsystem.repository;
+import com.springboot.admissionsystem.entity.University;
+import org.springframework.data.repository.CrudRepository;
+public interface UniversityRepository extends CrudRepository<University, Integer> {
+	
+
+}

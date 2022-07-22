@@ -1,0 +1,56 @@
+package com.springboot.admissionsystem.controller;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.springboot.admissionsystem.controller.CourseController;
+import com.vegetable.Store.entity.Vegetables;
+import com.vegetable.Store.service.VegetableService;
+@RestController
+@CrossOrigin(origins = "http://localhost:4200/")
+public class CourseController {
+	@Autowired
+	private CourseService courseService;
+
+	@GetMapping("/course")
+	public List<Course> getAllCourse(){
+		return courseService.getAllCourse();
+	}
+	
+	@PostMapping("/course/add")
+	public void addCourse(@RequestBody Course c) {
+		courseService.addCourse(c);
+	}
+	
+	@PutMapping("/course/{id}")
+	public String updateCourseById(@RequestBody Course c,@PathVariable int courseId) {
+		return vegetableService.updateVegetableById(v, id);
+	}
+	
+	@GetMapping("vegetables/categoryName")
+	public ResponseEntity<List<Vegetables>> getVegetablesByCategory(@RequestParam String categoryName){
+		return new ResponseEntity<List<Vegetables>>(vegetableService.getVegetablesByCategory(categoryName),HttpStatus.OK) ;
+	}
+	
+	@DeleteMapping("/vegetables/delete/{id}")
+	public void deleteById(@PathVariable int id) {
+		 vegetableService.deleteById(id);
+	}
+	
+	@GetMapping("vegetables/vegetableName")
+	public List<Vegetables> getVegetableByName(@RequestParam String vegetableName) {
+		return vegetableService.getVegetablesByName(vegetableName);
+	}
+	
+}

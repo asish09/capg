@@ -1,0 +1,11 @@
+package com.springboot.admissionsystem.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class adminservice {
+	public boolean validateDoctor(String username, String password) {
+		return username.equalsIgnoreCase("doctor")
+				&& password.equalsIgnoreCase("password");
+	}
+}

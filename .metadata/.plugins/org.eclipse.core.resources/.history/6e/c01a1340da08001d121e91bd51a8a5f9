@@ -1,0 +1,10 @@
+package com.springboot.admissionsystem.repository;
+import java.util.List;
+import entities.Course;
+public interface courseRepository {
+	course addCourse(course course);
+	course updateCourse(course course);
+	void removeCourse(int courseId);
+	Course viewCourse(int courseId);
+	List<Course> viewAllCourseList();
+}
